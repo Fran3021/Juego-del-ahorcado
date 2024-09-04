@@ -1,0 +1,103 @@
+#main-principal{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    #image-principal{
+        display: none;
+        position: absolute;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+    }
+    h1{
+        text-align: center;
+        animation: changed-scale 3s ease 0s infinite;
+    }
+    #container-letras-canvas{
+        max-width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        justify-content: space-between;
+        #container-letras{
+            max-width: 45%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            #pregunta{
+                text-align: center;
+                font-size: 15px;
+                color: black;
+            }
+            #palabra-correcta{
+                display: flex;
+                gap: 7px;
+                font-size: 15px;
+                color: blue;
+            }
+            #palabra-incorrecta{
+                font-size: 15px;
+                color: red;
+            }
+        }
+        #container-canvas{
+            max-width: 50%;
+            #dibujo-ahorcado{
+                border: 3px solid blue;
+                background-color: cyan;
+                width: 100%;
+            }
+        }
+    }
+    #container-input-restart{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        #container-input{
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            #input-letra{
+                font-size: 17px;
+                color: blue;
+                border: 0;
+                background-color: rgba(blue, 0.1);
+                border-radius: 5px;
+                outline: none;
+                padding: 10px;
+                &::placeholder{
+                    color: black;
+                    font-size: 13px;
+                }
+            }
+            #adivina-palabra{
+                background-color: cyan;
+                border: 1px solid blue;
+                padding: 10px;
+                border-radius: 5px;
+                font-size: 13px;
+            }
+        }
+        #container-restart{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            #message{
+                font-size: 17px;
+                padding: 10px;
+                border-radius: 5px;
+            }
+            #restart-button{
+                background-color:cyan;
+                border: 1px solid blue;
+                padding: 10px;
+                border-radius: 5px;
+                font-size: 13px;
+                max-width: max-content;
+                display: none;
+            }
+        }
+    }
+}

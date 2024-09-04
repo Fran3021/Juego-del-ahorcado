@@ -1,0 +1,64 @@
+<!--Obligatorio para que el navegador lo lea perfecto en lenguaje HTML-->
+<!doctype html>
+<html lang="es">
+
+<head>
+  <!--Aqui el titulo para los buscadores-->
+  <title>Game-Ahorcado</title>
+  
+  <!--Descripcion que sale al buscarlo en el navegador-->
+  <meta name="description" content="game">
+
+  <!--Palabras claves para los buscadores en navegadores-->
+  <meta name="keywords" content="game">
+
+  <!--Autor de la pagina-->
+  <meta name="autor" content="Fran">
+
+  <!--Añadimos la hoja de estilo CSS, SASS o codigo javascript-->
+  <script defer type="module" src="./src/main.js"></script>
+
+  <!--Favicon de la pagina(icono)-->
+  <link rel="icon" href="/vite.svg" type="image/x-icon">
+
+  <!--Codificacion-->
+  <meta charset="UTF-8">
+
+  <!--Para que la web sea resposinve(El tamaño segun el dispositivo)-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--Para algunos navegadores moviles(Color parte de arriba del HEADER)-->
+  <meta name="theme-color" content="FF0000">
+</head>
+
+<body>
+  <main id="main-principal">
+    <img id="image-principal" src="img/fondo-ahorcado.jpg" alt="">
+    <h1>Juego del Ahorcado</h1>
+    <section id="container-letras-canvas">
+      <div id="container-letras">
+        <div id="pregunta"></div>
+        <div id="palabra-correcta"></div>
+        <div id="palabra-incorrecta"></div>
+      </div>
+      <div id="container-canvas">
+        <canvas id="dibujo-ahorcado"></canvas>
+      </div>
+    </section>
+    <section id="container-input-restart">
+      <div id="container-input">
+        <input id="input-letra" type="text" maxlength="1" placeholder="Introduce la palabra">
+        <button id="adivina-palabra">Prueba suerte</button>
+      </div>
+      <div id="container-restart">
+        <div id="message"></div>
+        <button id="restart-button">Reinicio</button>
+      </div>
+    </section>
+  </main>
+
+  <footer> 
+  </footer>
+</body>
+</html>
+

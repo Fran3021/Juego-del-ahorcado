@@ -1,0 +1,129 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+.pnpm-debug.log*
+*.tsbuildinfo
+
+# Logs
+logs
+*.log
+logs/
+*.log
+*.log.*
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+.*.swp
+.*.swo
+.directory
+
+# Temporary Files
+*.tmp
+*.temp
+*.bak
+*.backup
+*.swp
+*.swo
+*.swn
+*.orig
+*.rej
+*~
+*.pid
+*.seed
+*.pid.lock
+
+# IDEs and Editors
+# VSCode
+.vscode/
+.history/
+.idea/
+# Sublime Text
+*.sublime-workspace
+*.sublime-project
+# JetBrains IDEs (IntelliJ IDEA, PyCharm, WebStorm, etc.)
+.idea/
+*.iml
+# Eclipse
+.project
+.classpath
+.cproject
+.settings/
+# NetBeans
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+# Compiled source
+*.class
+*.o
+*.so
+*.dylib
+*.exe
+*.out
+*.dll
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+
+# Java
+*.jar
+*.war
+*.ear
+
+# C++
+*.obj
+*.o
+*.elf
+*.lst
+*.map
+
+# Rust
+target/
+
+# Go
+bin/
+*.exe
+
+# Ruby
+*.gem
+*.rbc
+
+# Logs and databases
+*.sql
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+*.sql*
+*.log
+*.log.*
+
+# System Files
+.env
+.env.*
+.envrc
+.secret
+.secret.*
+.credentials
+.credentials.*
+
