@@ -1,15 +1,23 @@
 //keyframes
 @keyframes changed-scale{
     0%{
-        color: yellow;
-        scale: 1;
+        color: red;
+        scale: 0.6;
+    }
+    25%{
+        color: orange;
+        scale: 0.8;
     }
     50%{
+        color: red;
+        scale: 1;
+    }
+    75%{
         color: orange;
-        scale: 1.2;
+        scale: 0.8;
     }
     100%{
         color: red;
-        scale: 1.4;
+        scale: 0.6;
     }
 }

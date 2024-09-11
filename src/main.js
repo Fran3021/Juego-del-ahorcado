@@ -24,7 +24,7 @@ let musicaFondo = new Howl({
 
 let correctWord = new Howl({
     src: ['/music/palabra-correcta.wav'],
-    volume: 0.5,
+    volume: 0.7,
     loop: false,
 })
 
@@ -34,40 +34,127 @@ let wrongWord = new Howl({
     loop: false,
 })
 
-//creamos un array con las preguntas
-let arrayPreguntas = ['¿Cual el personaje principal en el juego Poppy PlayTime?',
+//creamos un array con las preguntas en distintos niveles de dificultad
+let arrayPreguntasFacil = ['¿Cual el personaje principal en el juego Poppy PlayTime?',
     '¿Como se llama el juego que se gana desactivando la spike?',
     '¿Cual es juego que gano el goty en el año 2022?',
     '¿Como se llama el proceso por el cual las plantas expulsan oxigeno?',
-    '¿En que oceano se hundio el Titanic?']
+    '¿En que oceano se hundio el Titanic?',
+    '¿Líquido transparente y vital para los seres vivos?',
+    '¿Verdura verde con forma de árbol pequeño?',
+    '¿Fruta de color amarillo y alargada?',
+    '¿Animal que dice "miau"?',
+    '¿Parte del cuerpo usada para escuchar?',
+]
 
-//creamos un array con las respuestas
-let arrayRespuestas = ['huggywuggy',
+let arrayPreguntasMedio = ['¿Animal que es el más grande en la Tierra?',
+    '¿Elemento químico cuyo símbolo es "O"?',
+    '¿País donde se encuentra la Torre Eiffel?',
+    '¿Deporte que se juega con una pelota y canasta?',
+    '¿Reptil que puede cambiar de color?',
+    '¿Moneda usada en Japón?',
+    '¿Cual es el metal más común en los cables eléctricos?',
+    '¿Animal que pone huevos y tiene plumas?',
+    '¿País sudamericano famoso por su carnaval?',
+    '¿Mineral que compone los huesos?',
+]
+
+let arrayPreguntasDificil = [' ¿Héroe mitológico griego que mató a Medusa?',
+    '¿Término usado para referirse al estudio de las estrellas?',
+    '¿Sistema de gobierno donde el poder está en una sola persona?',
+    '¿País de origen de la empresa Samsung?',
+    '¿Cómo se llama el proceso de conversión de vapor a líquido?',
+    '¿Año de la caída del muro de Berlín?',
+    '¿Partícula subatómica sin carga?',
+    '¿Especie de ave conocida por su capacidad para imitar sonidos?',
+    '¿Estado de la materia que es más abundante en el universo?',
+    '¿Instrumento de viento utilizado en música clásica con cuerpo de madera?',
+]
+
+//creamos un array con las respuestas en distintos niveles de dificultad
+let arrayRespuestasFacil = ['huggywuggy',
     'valorant',
     'eldenring',
     'fotosintesis',
-    'atlantico'
+    'atlantico',
+    'agua',
+    'brocoli',
+    'platano',
+    'gato',
+    'oreja',
 ]
 
-function iniciarGame(){
-    preguntaRespuesta()
+let arrayRespuestasMedio = ['ballena',
+    'oxigeno',
+    'francia',
+    'baloncesto',
+    'camaleon',
+    'yen',
+    'cobre',
+    'gallina',
+    'brasil',
+    'calcio',
+]
+
+let arrayRespuestasDificil = ['perseo',
+    'astronomia',
+    'dictadura',
+    'coreadelsur',
+    'condensacion',
+    '1989',
+    'neutron',
+    'loro',
+    'plasma',
+    'fagot',
+]
+
+
+
+function iniciarGameFacil(){
+    preguntaRespuestaFacil()
+    comprobarLetra()
+    musicaFondo.play()
+}
+
+function iniciarGameMedio(){
+    preguntaRespuestaMedio()
+    comprobarLetra()
+    musicaFondo.play()
+}
+
+function iniciarGameDificil(){
+    preguntaRespuestaDificil()
     comprobarLetra()
     musicaFondo.play()
 }
 
 
-let respuesta;
+let respuesta
 let palabraIncorrecta = []
 let maxFallos = 6
 let fallos = 0
-let palabraCorrecta = [];
+let palabraCorrecta = []
 
 
-function preguntaRespuesta(){
-    let pregunta = arrayPreguntas[Math.floor(Math.random() * arrayPreguntas.length)]
+function preguntaRespuestaFacil(){
+    let pregunta = arrayPreguntasFacil[Math.floor(Math.random() * arrayPreguntasFacil.length)]
     preguntas.textContent = pregunta
-    let indexPregunta = arrayPreguntas.findIndex(question => question === pregunta)
-    respuesta = arrayRespuestas[indexPregunta]
+    let indexPregunta = arrayPreguntasFacil.findIndex(question => question === pregunta)
+    respuesta = arrayRespuestasFacil[indexPregunta]
+}
+
+function preguntaRespuestaMedio(){
+    let pregunta = arrayPreguntasMedio[Math.floor(Math.random() * arrayPreguntasMedio.length)]
+    preguntas.textContent = pregunta
+    let indexPregunta = arrayPreguntasMedio.findIndex(question => question === pregunta)
+    respuesta = arrayRespuestasMedio[indexPregunta]
+}
+
+function preguntaRespuestaDificil(){
+    let pregunta = arrayPreguntasDificil[Math.floor(Math.random() * arrayPreguntasDificil.length)]
+    preguntas.textContent = pregunta
+    let indexPregunta = arrayPreguntasDificil.findIndex(question => question === pregunta)
+    respuesta = arrayRespuestasDificil[indexPregunta]
 }
 
 
@@ -218,11 +305,23 @@ function dibujarAhorcado(){
 
 
 
-// //cabeza
 
+function comprobarDificultad(){
+    let nivelDificultad = prompt('Introduce el nivel de dificultad')
+    if(nivelDificultad === 'facil'){
+        iniciarGameFacil()
+    }if(nivelDificultad === 'medio'){
+        iniciarGameMedio()
+    }if(nivelDificultad === 'dificil'){
+        iniciarGameDificil()
+    }else{
+        nivelDificultad = prompt('Introduce el nivel de dificultad')
+        while(nivelDificultad !== 'facil' && nivelDificultad !== 'medio' && nivelDificultad !== 'dificil'){
+            alert('No ha introducido una dificultad correcta')
+            nivelDificultad = prompt('Introduce el nivel de dificultad')
+        }
+        iniciarGame()
+    }
+}
 
-// //cuerpo
-
-
-iniciarGame()
-
+comprobarDificultad()
