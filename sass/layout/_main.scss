@@ -2,6 +2,12 @@
     display: flex;
     flex-direction: column;
     gap: 30px;
+    @include breakpoint(tablet){
+        gap: 60px;
+    }
+    @include breakpoint(tablethorizontal){
+        gap: 80px;
+    }
     #image-principal{
         position: absolute;
         z-index: -1;
@@ -10,42 +16,93 @@
     }
     h1{
         text-align: center;
+        text-shadow: 0px 50px 75px red;
         animation: changed-scale 4s linear infinite;
+        @include breakpoint(tablet){
+            font-size: 70px;
+        }
+        @include breakpoint(tablethorizontal){
+            font-size: 80px;
+        }
+        @include breakpoint(desktop){
+            font-size: 90px;
+        }
+        @include breakpoint(desktopxl){
+            font-size: 100px;
+        }
+        @include breakpoint(desktopxxl){
+            font-size: 120px;
+        }
     }
     #container-letras-canvas{
-        max-width: 95%;
-        margin-left: auto;
-        margin-right: auto;
+        margin-right: 3%;
+        margin-left: 3%;
         display: flex;
         justify-content: space-between;
+        gap: 10px;
         #container-letras{
-            max-width: 45%;
+            width: 45%;
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 10px;
+            @include breakpoint(tablet){
+                gap: 20px;
+            }
+            @include breakpoint(tablethorizontal){
+                gap: 40px;
+            }
+
             #pregunta{
                 text-align: center;
                 font-size: 15px;
-                color: yellow;
+                color: white;
+                @include breakpoint(tablet){
+                    font-size: 20px;
+                }
+                @include breakpoint(desktop){
+                    font-size: 25px;
+                }
+                @include breakpoint(desktopxxl){
+                    font-size: 35px;
+                }
             }
             #palabra-correcta{
                 display: flex;
                 gap: 7px;
                 font-size: 15px;
-                color: pink;
+                color: yellow;
+                @include breakpoint(tablet){
+                    font-size: 20px;
+                }
+                @include breakpoint(desktop){
+                    font-size: 25px;
+                }
+                @include breakpoint(desktopxxl){
+                    font-size: 35px;
+                }
             }
             #palabra-incorrecta{
                 font-size: 15px;
                 color: red;
+                @include breakpoint(tablet){
+                    font-size: 20px;
+                }
+                @include breakpoint(desktop){
+                    font-size: 25px;
+                }
+                @include breakpoint(desktopxxl){
+                    font-size: 35px;
+                }
             }
         }
         #container-canvas{
-            max-width: 50%;
+            width: 55%;
             #dibujo-ahorcado{
-                border: 3px solid blue;
-                background-color: cyan;
+                border: 3px solid red;
+                background-color: rgba(black, 0.3);
                 width: 100%;
+                box-shadow: 0px 5px 25px 0px inset rgb(8, 210, 25);
             }
         }
     }
@@ -53,29 +110,73 @@
         display: flex;
         flex-direction: column;
         gap: 20px;
+        @include breakpoint(tablet){
+            gap: 40px;
+        }
+        @include breakpoint(desktop){
+            gap: 60px;
+        }
         #container-input{
             display: flex;
             justify-content: center;
             gap: 5px;
+            @include breakpoint(tablet){
+                justify-content: space-evenly;
+                gap: 0px;
+            }
             #input-letra{
                 font-size: 17px;
                 color: whitesmoke;
                 border: 0;
-                background-color: rgba(blue, 0.1);
+                background-color: rgba(red, 0.3);
                 border-radius: 5px;
                 outline: none;
                 padding: 10px;
+                @include breakpoint(tablet){
+                    padding: 10px 70px 10px 10px;
+                    font-size: 20px;
+                }
+                @include breakpoint(desktop){
+                    padding: 10px 90px 10px 10px;
+                    font-size: 23px;
+                }
+                @include breakpoint(desktopxxl){
+                    font-size: 33px;
+                }
                 &::placeholder{
                     color: black;
                     font-size: 13px;
+                    @include breakpoint(tablet){
+                        font-size: 17px;
+                    }
+                    @include breakpoint(desktop){
+                        font-size: 21px;
+                    }
+                    @include breakpoint(desktopxxl){
+                        font-size: 31px;
+                    }
                 }
             }
             #adivina-palabra{
-                background-color: cyan;
-                border: 1px solid blue;
+                background-color: black;
+                border: 1px solid red;
+                box-shadow: 0px 0px 55px white;
                 padding: 10px;
                 border-radius: 5px;
                 font-size: 13px;
+                color: white;
+                @include breakpoint(tablet){
+                    font-size: 17px;
+                    padding: 10px 20px;
+                }
+                @include breakpoint(desktop){
+                    font-size: 21px;
+                    padding: 15px 30px;
+                }
+                @include breakpoint(desktopxxl){
+                    font-size: 31px;
+                    padding: 20px 40px;
+                }
             }
         }
         #container-restart{
@@ -83,19 +184,45 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            @include breakpoint(tablet){
+                gap: 30px;
+            }
             #message{
                 font-size: 17px;
                 padding: 10px;
                 border-radius: 5px;
+                color: yellowgreen;
+                @include breakpoint(tablet){
+                    font-size: 20px;
+                }
+                @include breakpoint(desktop){
+                    font-size: 23px;
+                }
+                @include breakpoint(desktopxxl){
+                    font-size: 33px;
+                }
             }
             #restart-button{
-                background-color:cyan;
-                border: 1px solid blue;
+                background-color:red;
+                border: 2px solid black;
+                box-shadow: 0px 0px 55px 20px black;
                 padding: 10px;
                 border-radius: 5px;
                 font-size: 13px;
                 max-width: max-content;
                 display: none;
+                @include breakpoint(tablet){
+                    font-size: 17px;
+                    padding: 10px 20px;
+                }
+                @include breakpoint(desktop){
+                    font-size: 21px;
+                    padding: 15px 30px;
+                }
+                @include breakpoint(desktopxxl){
+                    font-size: 31px;
+                    padding: 20px 40px;
+                }
             }
         }
     }

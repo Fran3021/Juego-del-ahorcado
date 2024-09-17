@@ -17,8 +17,8 @@ let buttonRestart = document.getElementById('restart-button')
 
 //variables de musica
 let musicaFondo = new Howl({
-    src: ['/music/song-game-ahorcado.mp3'],
-    volume: 0.0,
+    src: ['/music/musica-fondo-ahorcado.wav'],
+    volume: 0.1,
     loop: true,
 })
 
@@ -30,6 +30,18 @@ let correctWord = new Howl({
 
 let wrongWord = new Howl({
     src: ['/music/wrong-words.wav'],
+    volume: 0.3,
+    loop: false,
+})
+
+let gameOver = new Howl ({
+    src: ['/music/game-over-ahorcado.wav'],
+    volume: 0.7,
+    loop: false,
+})
+
+let win = new Howl({
+    src: ['/music/win-game-ahorcado.wav'],
     volume: 0.3,
     loop: false,
 })
@@ -197,6 +209,8 @@ function comprobarDerrota(){
         buttonAdivina.disabled = true
         buttonRestart.style.display = 'block'
         inputLetra.disabled = true
+        musicaFondo.stop()
+        gameOver.play()
         buttonRestart.addEventListener('click', () => {
             location.reload()
         })
@@ -207,6 +221,8 @@ function comprobarVictoria(){
     let inputLetra = document.getElementById('input-letra')
     if(palabraCorrecta.join(',').replaceAll(',' ,'') === respuesta){
         message.textContent = 'Has ganado!'
+        musicaFondo.stop()
+        win.play()
         buttonAdivina.disabled = true
         buttonRestart.style.display = 'block'
         inputLetra.disabled = true
@@ -272,7 +288,7 @@ function dibujarAhorcado(){
     //cabeza
     if(fallos >= 5){
         ctx.lineWidth = 2
-        ctx.strokeStyle = 'pink'
+        ctx.strokeStyle = 'red'
         ctx.beginPath();
         ctx.arc(220, 69, 15, 0, Math.PI * 2);
         ctx.moveTo(225, 65)
@@ -287,7 +303,7 @@ function dibujarAhorcado(){
     //cuerpo
     if(fallos >= 6){
         ctx.lineWidth = 2
-        ctx.strokeStyle = 'pink'
+        ctx.strokeStyle = 'red'
         ctx.beginPath()
         ctx.moveTo(220,85)
         ctx.lineTo(220, 120)
@@ -307,7 +323,7 @@ function dibujarAhorcado(){
 
 
 function comprobarDificultad(){
-    let nivelDificultad = prompt('Introduce el nivel de dificultad')
+    let nivelDificultad = prompt('Introduce el nivel de dificultad').toLowerCase()
     if(nivelDificultad === 'facil'){
         iniciarGameFacil()
     }if(nivelDificultad === 'medio'){
@@ -315,12 +331,11 @@ function comprobarDificultad(){
     }if(nivelDificultad === 'dificil'){
         iniciarGameDificil()
     }else{
-        nivelDificultad = prompt('Introduce el nivel de dificultad')
         while(nivelDificultad !== 'facil' && nivelDificultad !== 'medio' && nivelDificultad !== 'dificil'){
             alert('No ha introducido una dificultad correcta')
             nivelDificultad = prompt('Introduce el nivel de dificultad')
         }
-        iniciarGame()
+        iniciarGameFacil()
     }
 }
 
