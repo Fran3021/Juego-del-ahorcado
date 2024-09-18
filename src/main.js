@@ -42,7 +42,7 @@ let gameOver = new Howl ({
 
 let win = new Howl({
     src: ['/music/win-game-ahorcado.wav'],
-    volume: 0.3,
+    volume: 0.1,
     loop: false,
 })
 
@@ -122,24 +122,21 @@ let arrayRespuestasDificil = ['perseo',
 
 
 
-function iniciarGameFacil(){
-    preguntaRespuestaFacil()
-    comprobarLetra()
-    musicaFondo.play()
+function iniciarGame(nivelDificultad){
+    if(nivelDificultad === 'facil'){
+        preguntaRespuestaFacil()
+        comprobarLetra()
+        musicaFondo.play()
+    }else if(nivelDificultad === 'medio'){
+        preguntaRespuestaMedio()
+        comprobarLetra()
+        musicaFondo.play()
+    }else if(nivelDificultad === 'dificil'){
+        preguntaRespuestaDificil()
+        comprobarLetra()
+        musicaFondo.play()
+    }
 }
-
-function iniciarGameMedio(){
-    preguntaRespuestaMedio()
-    comprobarLetra()
-    musicaFondo.play()
-}
-
-function iniciarGameDificil(){
-    preguntaRespuestaDificil()
-    comprobarLetra()
-    musicaFondo.play()
-}
-
 
 let respuesta
 let palabraIncorrecta = []
@@ -325,17 +322,17 @@ function dibujarAhorcado(){
 function comprobarDificultad(){
     let nivelDificultad = prompt('Introduce el nivel de dificultad').toLowerCase()
     if(nivelDificultad === 'facil'){
-        iniciarGameFacil()
-    }if(nivelDificultad === 'medio'){
-        iniciarGameMedio()
-    }if(nivelDificultad === 'dificil'){
-        iniciarGameDificil()
+        iniciarGame(nivelDificultad)
+    }else if(nivelDificultad === 'medio'){
+        iniciarGame(nivelDificultad)
+    }else if(nivelDificultad === 'dificil'){
+        iniciarGame(nivelDificultad)
     }else{
         while(nivelDificultad !== 'facil' && nivelDificultad !== 'medio' && nivelDificultad !== 'dificil'){
             alert('No ha introducido una dificultad correcta')
-            nivelDificultad = prompt('Introduce el nivel de dificultad')
+            nivelDificultad = prompt('Introduce el nivel de dificultad').toLowerCase()
         }
-        iniciarGameFacil()
+        iniciarGame(nivelDificultad)
     }
 }
 
