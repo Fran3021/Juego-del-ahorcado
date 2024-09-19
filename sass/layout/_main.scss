@@ -165,6 +165,10 @@
                 border-radius: 5px;
                 font-size: 13px;
                 color: white;
+                &:hover{
+                    background-color: red;
+                    cursor: pointer;
+                }
                 @include breakpoint(tablet){
                     font-size: 17px;
                     padding: 10px 20px;
@@ -211,6 +215,10 @@
                 font-size: 13px;
                 max-width: max-content;
                 display: none;
+                &:hover{
+                    background-color: white;
+                    cursor: pointer;
+                }
                 @include breakpoint(tablet){
                     font-size: 17px;
                     padding: 10px 20px;
