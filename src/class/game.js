@@ -19,6 +19,7 @@ class Game{
     }
 
     static comprobarDificultad(){
+        //metodo estatico que lo llamamos para poder comprobar la dificultad introducida por el usuario
         let dificultad = prompt('Introduzca la dificultad: Facil | Medio | Dificil ').toLowerCase()
         if(dificultad === 'facil' && dificultad === 'medio' && dificultad === 'dificil'){
             return {
@@ -36,6 +37,7 @@ class Game{
     }
 
     iniciarGame(){
+        //metodo para iniciar el juego segun la dificultad
         if(this.nivelDificultad === 'facil'){
             this.preguntasRespuestasFacil()
             this.comprobarLetra()
@@ -52,14 +54,16 @@ class Game{
     }
 
     preguntasRespuestasFacil(){
+        //metodo donde sacamos las preguntas y respuestas
+
         //seleccionamos el div de la pregunta
         let preguntas = document.getElementById('pregunta')
         //array de preguntas
         let arrayPreguntasFacil = [
-            '¿Cual el personaje principal en el juego Poppy PlayTime?',
-            '¿Como se llama el juego que se gana desactivando la spike?',
-            '¿Cual es juego que gano el goty en el año 2022?',
-            '¿Como se llama el proceso por el cual las plantas expulsan oxigeno?',
+            '¿Mes que tiene 28 o 29 días?',
+            '¿Planeta donde vivimos?',
+            '¿Elemento del cuerpo que se usa para caminar?',
+            '¿Instrumento musical con cuerdas?',
             '¿En que oceano se hundio el Titanic?',
             '¿Líquido transparente y vital para los seres vivos?',
             '¿Verdura verde con forma de árbol pequeño?',
@@ -69,10 +73,10 @@ class Game{
         ]
         //array de respuestas
         let arrayRespuestasFacil = [
-            'huggywuggy',
-            'valorant',
-            'eldenring',
-            'fotosintesis',
+            'febrero',
+            'tierra',
+            'pierna',
+            'guitarra',
             'atlantico',
             'agua',
             'brocoli',
@@ -89,8 +93,11 @@ class Game{
     }
 
     preguntasRespuestasMedio(){
-        let preguntas = document.getElementById('pregunta')
+        //metodo donde sacamos las preguntas y respuestas
 
+        //seleccionamos el div de la pregunta
+        let preguntas = document.getElementById('pregunta')
+        //array de preguntas
         let arrayPreguntasMedio = [
             '¿Animal que es el más grande en la Tierra?',
             '¿Elemento químico cuyo símbolo es "O"?',
@@ -103,7 +110,7 @@ class Game{
             '¿País sudamericano famoso por su carnaval?',
             '¿Mineral que compone los huesos?',
         ]
-
+        //array de respuestas
         let arrayRespuestasMedio = [
             'ballena',
             'oxigeno',
@@ -116,7 +123,7 @@ class Game{
             'brasil',
             'calcio',
         ]
-
+        //sacamos la pregunta aleatoria
         let pregunta = arrayPreguntasMedio[Math.floor(Math.random() * arrayPreguntasMedio.length)]
         preguntas.textContent = pregunta
         let indexPregunta = arrayPreguntasMedio.findIndex(question => question === pregunta)
@@ -124,8 +131,11 @@ class Game{
     }
 
     preguntasRespuestasDificil(){
-        let preguntas = document.getElementById('pregunta')
+        //metodo donde sacamos las preguntas y respuestas
 
+        //seleccionamos el div de la pregunta
+        let preguntas = document.getElementById('pregunta')
+        //array de preguntas
         let arrayPreguntasDificil = [
             '¿Héroe mitológico griego que mató a Medusa?',
             '¿Término usado para referirse al estudio de las estrellas?',
@@ -138,7 +148,7 @@ class Game{
             '¿Estado de la materia que es más abundante en el universo?',
             '¿Instrumento de viento utilizado en música clásica con cuerpo de madera?',
         ]
-
+        //array de respuestas
         let arrayRespuestasDificil = [
             'perseo',
             'astronomia',
@@ -151,7 +161,7 @@ class Game{
             'plasma',
             'fagot',
         ]
-
+        //sacamos la pregunta aleatoria
         let pregunta = arrayPreguntasDificil[Math.floor(Math.random() * arrayPreguntasDificil.length)]
         preguntas.textContent = pregunta
         let indexPregunta = arrayPreguntasDificil.findIndex(question => question === pregunta)
@@ -179,13 +189,16 @@ class Game{
         let palabrasIncorrectas = document.getElementById('palabra-incorrecta')
         let palabraAdivinar = Array(this.respuesta.length).fill('_')
         buttonAdivina.addEventListener('click', () => {
+            //ponemos a la escucha el boton para sacar el valor del input y comprobar si el valor introducido es correcto
             let valor = document.getElementById('input-letra').value.toLowerCase()
             let letraCorrecta = false
             let numerosLetras = /^[a-zA-Z0-9]+$/
+            //nos aseguramos que introduce un caracter correcto
             if(!numerosLetras.test(valor)){
                 alert('No ha introducido un caracter correcto')
             }else{
                 for(let i = 0; i < this.respuesta.length; i++){
+                    //si es correcto comprobamos si el valor es una letra de la respuesta
                     if(this.respuesta[i] === valor){
                         palabraAdivinar[i] = valor
                         this.palabraCorrecta[i] = valor
@@ -204,6 +217,7 @@ class Game{
                     this.dibujarAhorcado()
                 }
             }
+            //anadimos la letra al conteneder correspondiente
             palabrasCorrectas.textContent = palabraAdivinar.join(' ')
         })
     }

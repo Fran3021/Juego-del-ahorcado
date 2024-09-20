@@ -15,6 +15,7 @@
         height: 100%;
     }
     h1{
+        padding-top: 50px;
         text-align: center;
         text-shadow: 0px 50px 75px red;
         animation: changed-scale 4s linear infinite;
@@ -197,13 +198,13 @@
                 border-radius: 5px;
                 color: yellowgreen;
                 @include breakpoint(tablet){
-                    font-size: 20px;
+                    font-size: 27px;
                 }
                 @include breakpoint(desktop){
-                    font-size: 23px;
+                    font-size: 33px;
                 }
                 @include breakpoint(desktopxxl){
-                    font-size: 33px;
+                    font-size:43px;
                 }
             }
             #restart-button{
